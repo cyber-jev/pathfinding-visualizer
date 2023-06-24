@@ -35,7 +35,7 @@ export function dijkstra(grid, startNode, finishNode) {
  *
  * @param {Node[]} unvisitedNodes - The array of unvisited nodes.
  */
-const sortNodesByDistance = unvisitedNodes => {
+const sortNodesByDistance = (unvisitedNodes) => {
   unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
 };
 
@@ -63,14 +63,14 @@ const updateUnvisitedNeighbors = (node, grid) => {
  */
 const getUnvisitedNeighbors = (node, grid) => {
   const neighbors = [];
-  const {col, row} = node;
+  const { col, row } = node;
 
   if (row > 0) neighbors.push(grid[row - 1][col]);
   if (row < grid.length - 1) neighbors.push(grid[row + 1][col]);
   if (col > 0) neighbors.push(grid[row][col - 1]);
   if (col < grid[0].length - 1) neighbors.push(grid[row][col + 1]);
 
-  return neighbors.filter(neighbor => !neighbor.isVisited);
+  return neighbors.filter((neighbor) => !neighbor.isVisited);
 };
 
 /**
@@ -79,7 +79,7 @@ const getUnvisitedNeighbors = (node, grid) => {
  * @param {Node[][]} grid - The grid of nodes.
  * @returns {Node[]} The flattened array of all nodes in the grid.
  */
-const getAllNodes = grid => {
+const getAllNodes = (grid) => {
   const nodes = [];
 
   for (const row of grid) {

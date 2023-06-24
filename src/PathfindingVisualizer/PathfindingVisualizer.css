@@ -1,4 +1,8 @@
 .grid {
-  /* margin: 100px 0 0; */
-  padding: 2rem;
+  padding: 1em;
+  line-height: 0%;
+}
+
+.grid-element {
+  opacity: 0.9;
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import './Node.css';
+import React from "react";
+import "./Node.css";
 
 /**
  * Node component represents a single node in a grid.
@@ -15,7 +15,7 @@ import './Node.css';
  * @param {number} props.row - The row index of the node.
  * @returns {JSX.Element} The Node component.
  */
-const Node = props => {
+const Node = (props) => {
   const {
     col,
     isFinish,
@@ -28,12 +28,12 @@ const Node = props => {
   } = props;
 
   const extraClassName = isFinish
-    ? 'node-finish'
+    ? "node-finish"
     : isStart
-    ? 'node-start'
+    ? "node-start"
     : isWall
-    ? 'node-wall'
-    : '';
+    ? "node-wall"
+    : "";
 
   return (
     <div
@@ -41,7 +41,8 @@ const Node = props => {
       className={`node ${extraClassName}`}
       onMouseDown={() => onMouseDown(row, col)}
       onMouseEnter={() => onMouseEnter(row, col)}
-      onMouseUp={() => onMouseUp()}></div>
+      onMouseUp={() => onMouseUp()}
+    ></div>
   );
 };
 

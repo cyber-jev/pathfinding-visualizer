@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --clr-bg: #3b065e;
+  --clr-bg2: #420b73;
+}
 
 body {
   margin: 0;
