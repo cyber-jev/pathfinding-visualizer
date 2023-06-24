@@ -1,7 +1,10 @@
 .node {
-  width: 25px;
-  height: 25px;
-  outline: 1px solid rgb(175, 216, 248);
+  /* width: 25px;
+  height: 25px; */
+  width: 1.5625rem;
+  height: 1.5625rem;
+  /* outline: 1px solid rgb(175, 216, 248); */
+  outline: 1px solid saddlebrown;
   display: inline-block;
 }
 
