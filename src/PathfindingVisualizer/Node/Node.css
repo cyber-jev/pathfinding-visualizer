@@ -1,11 +1,9 @@
 .node {
   width: 6.5px;
   height: 6.5px;
-  /* outline: 1px solid rgb(175, 216, 248); */
   outline: 1px solid rgb(104, 114, 113);
   display: inline-block;
   background: whitesmoke;
-  /* opacity: 0.9; */
 }
 
 @media (min-width: 500px) {
@@ -22,12 +20,16 @@
   }
 }
 
+.node-start {
+  background-color: green;
+}
+
 .node-finish {
   background-color: red;
 }
 
-.node-start {
-  background-color: green;
+.node-wall {
+  background-color: black;
 }
 
 .node-visited {
@@ -44,7 +46,7 @@
 @keyframes visitedAnimation {
   0% {
     transform: scale(0.3);
-    background-color: rgba(218, 68, 83, 0.75); /* Red */
+    background-color: rgba(218, 68, 83, 0.75);
     border-radius: 50%;
   }
 
@@ -67,10 +69,6 @@
     transform: scale(1);
     background-color: rgba(170, 148, 90);
   }
-}
-
-.node-wall {
-  background-color: black;
 }
 
 .node-shortest-path {

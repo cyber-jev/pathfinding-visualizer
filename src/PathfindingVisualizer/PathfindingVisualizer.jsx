@@ -4,64 +4,44 @@ import { dijkstra, getNodesInShortestPathOrder } from "../algorithms/dijkstra";
 
 import "./PathfindingVisualizer.css";
 
-/**
- * Constants defining the start and finish node positions
- */
+// Constants defining the start and finish node positions
 const START_NODE_ROW = 10;
 const START_NODE_COL = 15;
 const FINISH_NODE_ROW = 10;
 const FINISH_NODE_COL = 35;
 
-/**
- * PathfindingVisualizer component represents a pathfinding visualizer using Dijkstra's algorithm.
- * It renders a grid of nodes and provides user interactions for adding walls and visualizing the algorithm.
- */
+//  PathfindingVisualizer component represents a pathfinding visualizer using Dijkstra's algorithm.
+// It renders a grid of nodes and provides user interactions for adding walls and visualizing the algorithm.
 const PathfindingVisualizer = () => {
   const [grid, setGrid] = useState([]); // The grid representing the nodes
   const [mouseIsPressed, setMouseIsPressed] = useState(false); // Whether the mouse button is pressed or not
 
-  /**
-   * Initializes the grid when the component mounts
-   */
+  // Initializes the grid when the component mounts
   useEffect(() => {
     const initialGrid = getInitialGrid();
     setGrid(initialGrid);
   }, []);
 
-  /**
-   * Event handler for when the mouse button is pressed on a node
-   * @param {number} row - The row index of the clicked node
-   * @param {number} col - The column index of the clicked node
-   */
+  //  Event handler for when the mouse button is pressed on a node
   const handleMouseDown = (row, col) => {
     const newGrid = getNewGridWithWallToggled(grid, row, col);
     setGrid(newGrid);
     setMouseIsPressed(true);
   };
 
-  /**
-   * Event handler for when the mouse enters a node
-   * @param {number} row - The row index of the entered node
-   * @param {number} col - The column index of the entered node
-   */
+  //  Event handler for when the mouse enters a node
   const handleMouseEnter = (row, col) => {
     if (!mouseIsPressed) return;
     const newGrid = getNewGridWithWallToggled(grid, row, col);
     setGrid(newGrid);
   };
 
-  /**
-   * Event handler for when the mouse button is released
-   */
+  //   Event handler for when the mouse button is released
   const handleMouseUp = () => {
     setMouseIsPressed(false);
   };
 
-  /**
-   * Animates the visited nodes during the algorithm execution
-   * @param {Array} visitedNodesInOrder - Array of nodes representing the order in which they were visited
-   * @param {Array} nodesInShortestPathOrder - Array of nodes representing the shortest path
-   */
+  //  Animates the visited nodes during the algorithm execution
   const animateDijkstra = (visitedNodesInOrder, nodesInShortestPathOrder) => {
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
@@ -84,10 +64,7 @@ const PathfindingVisualizer = () => {
     }
   };
 
-  /**
-   * Animates the shortest path after the algorithm has finished
-   * @param {Array} nodesInShortestPathOrder - Array of nodes representing the shortest path
-   */
+  // Animates the shortest path after the algorithm has finished
   const animateShortestPath = (nodesInShortestPathOrder) => {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       setTimeout(() => {
@@ -102,9 +79,7 @@ const PathfindingVisualizer = () => {
     }
   };
 
-  /**
-   * Starts the visualization of Dijkstra's algorithm
-   */
+  // Starts the visualization of Dijkstra's algorithm
   const visualizeDijkstra = () => {
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
@@ -147,10 +122,7 @@ const PathfindingVisualizer = () => {
   );
 };
 
-/**
- * Initializes the grid by creating an array of nodes with the specified number of rows and columns.
- * @returns {Array} The initialized grid
- */
+// Initializes the grid by creating an array of nodes with the specified number of rows and columns.
 const getInitialGrid = () => {
   const grid = [];
   for (let row = 0; row < 20; row++) {
@@ -163,12 +135,7 @@ const getInitialGrid = () => {
   return grid;
 };
 
-/**
- * Creates a node object with the specified row and column coordinates.
- * @param {number} col - The column index of the node
- * @param {number} row - The row index of the node
- * @returns {Object} The created node object
- */
+// Creates a node object with the specified row and column coordinates.
 const createNode = (col, row) => {
   return {
     col,
@@ -182,13 +149,7 @@ const createNode = (col, row) => {
   };
 };
 
-/**
- * Toggles the wall property of the node in the grid at the given row and column coordinates.
- * @param {Array} grid - The grid of nodes
- * @param {number} row - The row index of the node
- * @param {number} col - The column index of the node
- * @returns {Array} The updated grid with the wall property toggled
- */
+// Toggles the wall property of the node in the grid at the given row and column coordinates.
 const getNewGridWithWallToggled = (grid, row, col) => {
   const newGrid = [...grid];
   const node = newGrid[row][col];
